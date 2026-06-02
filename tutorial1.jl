@@ -71,6 +71,64 @@ plot!(df.age, df.score, label="trend")   # plot! modifies the current plot
 scatter(df.age, df.score, label="scores")
 savefig("myplot.png")
 
+
+for i in 1:5
+    println(i)
+end
+
+names = ["Abhisek", "Sam", "Lee"]
+for name in names
+    println("Hi, $name")
+end
+
+for row in eachrow(df)
+    println("age $(row.age) scored $(row.score)")
+end
+
+
+function greet(name)
+    return "Hello, $name"
+end
+
+println(greet("Abhisek"))
+
+square(x) = x^2
+add(a, b) = a + b
+
+println(square(5))    # 25
+println(add(3, 4))    # 7
+
+
+function power(base, exp=3)
+    return base ^ exp
+end
+power(5)      # 25  (uses default exp=2)
+power(5, 3)   # 125
+
+function describe(x; verbose=false)
+    verbose ? println("detailed: $x") : println(x)
+end
+describe(10)
+describe(10, verbose=true)
+
+
+
+function summarize_scores(scores)
+    total = 0.0
+    for s in scores
+        total += s
+    end
+    return total / length(scores)   # the mean, computed by hand
+end
+
+println(summarize_scores(df.score))
+
+
+
+
+
+
+
 #git add .
 #git commit -m "your message here"
 #git push
